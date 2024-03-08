@@ -1,1 +1,24 @@
+name: Laravel App Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        run: |
+          # Add your deployment steps here
+          # Example: scp or rsync to your Ubuntu 22.04 machine
+          # Run shell script on the server: ssh user@server 'bash -s' < deploy-script.sh
+          # Example deploy-script.sh content:
+          #   git pull
+          #   php artisan migrate
 
