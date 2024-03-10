@@ -14,17 +14,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        run: ssh user@server 'bash -s' < /scripts/deploy-script.sh
+        run: ssh webadmin@server 'bash -s' < /scripts/deploy_backend.sh
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          # Add your deployment steps here
-          # Example: scp or rsync to your Ubuntu 22.04 machine
-          # Run shell script on the server: ssh user@server 'bash -s' < deploy-script.sh
-          # Example deploy-script.sh content:
-          #   git pull
-          #   php artisan migrate
-      - name: Monitor CPU Utilization
-        run: ssh user@your-machine 'bash -s' < /scripts/monitor-cpu.sh
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
